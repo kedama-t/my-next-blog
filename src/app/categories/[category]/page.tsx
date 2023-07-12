@@ -6,7 +6,7 @@ import ArticleCard from "@/components/articleCard";
 const categories = await getCategories();
 
 export const generateStaticParams = async () => {
-  return categories.keys();
+  return [...categories.keys()];
 };
 
 export default async function showArticle({
