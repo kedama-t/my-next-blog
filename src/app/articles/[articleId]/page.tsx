@@ -4,8 +4,6 @@ import { Article } from "@/types/articles";
 
 const articles = await getArticles();
 
-export const revalidate = 60;
-
 export const generateStaticParams = async () => {
   return articles;
 };
@@ -19,6 +17,11 @@ export default async function listArticles({
 
   // APIをキック
   const article: Article = await microCmsClient.get({
+    customRequestInit: {
+      next: {
+        revalidate: 60,
+      },
+    },
     endpoint: "articles",
     contentId: articleId,
   });

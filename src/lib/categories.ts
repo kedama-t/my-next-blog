@@ -4,6 +4,11 @@ async function getCategories() {
   // カテゴリのAPIを叩いてnameEnとidを取得
   const response = await microCmsClient.get(
     {
+      customRequestInit: {
+        next: {
+          revalidate: 60,
+        },
+      },
       endpoint: 'categories',
       queries: { fields: 'nameEn,id' }
     }

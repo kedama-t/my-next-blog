@@ -21,6 +21,11 @@ export default async function showArticle({
 
   // APIをキック
   const response: ApiResponse = await microCmsClient.get({
+    customRequestInit: {
+      next: {
+        revalidate: 60,
+      },
+    },
     endpoint: "articles",
     queries: { limit: 20, filters },
   });
