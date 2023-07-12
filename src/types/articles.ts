@@ -25,4 +25,5 @@ type ApiResponse = {
   limit: number
 }
 
-export default ApiResponse
+export default ApiResponse;
+export type {Article};
