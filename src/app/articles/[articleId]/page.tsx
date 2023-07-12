@@ -4,6 +4,8 @@ import { Article } from "@/types/articles";
 
 const articles = await getArticles();
 
+export const revalidate = 60;
+
 export const generateStaticParams = async () => {
   return articles;
 };
