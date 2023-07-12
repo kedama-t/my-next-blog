@@ -1,7 +1,7 @@
-import Link from "next/link";
 import microCmsClient from "@/lib/microCms";
 import getCategories from "@/lib/categories";
 import ApiResponse from "@/types/articles";
+import ArticleCard from "@/components/articleCard";
 
 const categories = await getCategories();
 
@@ -29,16 +29,16 @@ export default async function showArticle({
 
   return (
     <div>
-      <Link href={`/`}>トップに戻る</Link>
       <p>{totalCount}件の記事があります</p>
       {contents.map((article) => {
         return (
           <article key={article.id}>
-            <Link href={`/articles/${article.id}`}>
-              <h2>{article.title}</h2>
-            </Link>
-            <p>{article.description}</p>
-            <p>作成日：{article.createdAt.toString()}</p>
+            <ArticleCard
+              id={article.id}
+              title={article.title}
+              description={article.description}
+              createdAt={article.createdAt}
+            />
           </article>
         );
       })}
