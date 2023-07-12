@@ -27,7 +27,7 @@ export default async function listArticles({
         <h2 className="text-5xl mb-4">{article.title}</h2>
         <p className="text-xs">{article.createdAt.toString()}</p>
         <div className="divider">{article.description}</div>
-        <div className="leading-normal" dangerouslySetInnerHTML={{ __html: article.body }} />
+        <div className="prose lg:prose-xl" dangerouslySetInnerHTML={{ __html: article.body }} />
       </article>
     </>
   );
