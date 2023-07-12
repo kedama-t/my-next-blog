@@ -1,7 +1,6 @@
-import Link from "next/link";
 import microCmsClient from "@/lib/microCms";
 import getArticles from "@/lib/articles";
-import {Article} from "@/types/articles";
+import { Article } from "@/types/articles";
 
 const articles = await getArticles();
 
@@ -21,16 +20,15 @@ export default async function listArticles({
     endpoint: "articles",
     contentId: articleId,
   });
-  
+
   return (
     <>
-    <Link href={`/categories/${article.category.nameEn}`}>記事一覧に戻る</Link>
-    <article>
-      <h2>{article.title}</h2>
-      <p>{article.description}</p>
-      <p>作成日：{article.createdAt.toString()}</p>
-      <div dangerouslySetInnerHTML={{ __html: article.body }} />
-    </article>
+      <article className="w-4/5 mx-auto my-4 p-8 rounded-lg bg-base-200 shadow-xl">
+        <h2 className="text-5xl mb-4">{article.title}</h2>
+        <p className="text-xs">{article.createdAt.toString()}</p>
+        <div className="divider">{article.description}</div>
+        <div className="leading-normal" dangerouslySetInnerHTML={{ __html: article.body }} />
+      </article>
     </>
   );
 }
