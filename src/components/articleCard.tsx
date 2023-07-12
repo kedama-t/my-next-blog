@@ -3,7 +3,7 @@ import Link from "next/link";
 interface ArticleCardProps {
   id:string,
   title:string,
-  description:string,
+  description?:string,
   createdAt:Date
 }
 

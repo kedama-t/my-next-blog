@@ -13,7 +13,7 @@ type Category = {
 
 type Article = {
   title: string,
-  description: string,
+  description?: string,
   category: Category
   body: string,
 } & ContentBase
