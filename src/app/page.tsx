@@ -6,7 +6,9 @@ export default function Home() {
       <div>
         <h1>Hello World!!</h1>
         <p>ようこそ私のブログへ。ゆっくりしていってね！</p>
-        <Link href="/about">自己紹介ぺージ</Link>
+        <div><Link href="/about">自己紹介ぺージ</Link></div>
+        <div><Link href="/categories/blog">日常ブログ</Link></div>
+        <div><Link href="/categories/technology">テックブログ</Link></div>
       </div>
     </main>
   )
