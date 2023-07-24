@@ -35,7 +35,9 @@ export default async function showArticle({
 
   return (
     <div>
-      <p>{totalCount}件の記事があります</p>
+      <div className="card w-4/5 my-4 mx-auto bg-base-200 shadow-xl">
+        <div className="card-body">{totalCount}件の記事があります</div>
+      </div>
       {contents.map((article) => {
         return (
           <article key={article.id}>
