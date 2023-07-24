@@ -2,6 +2,7 @@ import microCmsClient from "@/lib/microCms";
 import getCategories from "@/lib/categories";
 import ApiResponse from "@/types/articles";
 import ArticleCard from "@/components/articleCard";
+import { getLocalDateString } from "@/lib/utils";
 
 const categories = await getCategories();
 
@@ -42,7 +43,7 @@ export default async function showArticle({
               id={article.id}
               title={article.title}
               description={article.description}
-              createdAt={article.createdAt}
+              createdAt={getLocalDateString(article.createdAt)}
             />
           </article>
         );

@@ -4,7 +4,7 @@ interface ArticleCardProps {
   id:string,
   title:string,
   description?:string,
-  createdAt:Date
+  createdAt:string
 }
 
 export default function ArticleCard(props: ArticleCardProps) {
@@ -15,7 +15,7 @@ export default function ArticleCard(props: ArticleCardProps) {
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
         <p>{description}</p>
-        <p className='text-xs'>{createdAt.toString()}</p>
+        <p className='text-xs'>{createdAt}</p>
         <div className="card-actions justify-end">
           <Link href={`/articles/${id}`} className="btn btn-primary">記事を読む</Link>
         </div>

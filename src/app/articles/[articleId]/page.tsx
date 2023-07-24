@@ -1,6 +1,7 @@
 import microCmsClient from "@/lib/microCms";
 import getArticles from "@/lib/articles";
 import { Article } from "@/types/articles";
+import { getLocalDateString } from "@/lib/utils";
 
 const articles = await getArticles();
 
@@ -30,7 +31,7 @@ export default async function listArticles({
     <>
       <article className="w-4/5 mx-auto my-4 p-8 rounded-lg bg-base-200 shadow-xl">
         <h2 className="text-5xl mb-4">{article.title}</h2>
-        <p className="text-xs">{article.createdAt.toString()}</p>
+        <p className="text-xs">{getLocalDateString(article.createdAt)}</p>
         <div className="divider">{article.description}</div>
         <div className="prose lg:prose-xl" dangerouslySetInnerHTML={{ __html: article.body }} />
       </article>

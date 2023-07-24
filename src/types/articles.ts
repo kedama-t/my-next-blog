@@ -1,9 +1,9 @@
 type ContentBase = {
   id: string,
-  createdAt: Date,
-  updatedAt: Date,
-  publishedAt: Date,
-  revisedAt: Date,
+  createdAt: string,
+  updatedAt: string,
+  publishedAt: string,
+  revisedAt: string,
 }
 
 type Category = {
