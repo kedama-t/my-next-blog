@@ -24,7 +24,7 @@ export default function RootLayout({
         <Header />
         <div className="flex">
           <div className="flex-auto">{children}</div>
-          <div className="flex-none w-80 mt-4">
+          <div className="hidden md:inline-block flex-none w-80 mt-4">
             <Author name={name} imageSrc={imageSrc} profile={profile} />
           </div>
         </div>
