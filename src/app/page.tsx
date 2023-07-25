@@ -1,15 +1,36 @@
-import Link from "next/link";
+import microCmsClient from "@/lib/microCms";
+import ApiResponse from "@/types/articles";
+import ArticleCard from "@/components/articleCard";
+import { getLocalDateString } from "@/lib/utils";
 
-export default function Home() {
+export default async function Home() {
+  // APIをキック
+  const response: ApiResponse = await microCmsClient.get({
+    customRequestInit: {
+      next: {
+        revalidate: 60,
+      },
+    },
+    endpoint: "articles",
+    queries: { limit: 20 },
+  });
+  // 結果からコンテンツを取り出す
+  const { contents } = response;
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>
-        <h1>Hello World!!</h1>
-        <p>ようこそ私のブログへ。ゆっくりしていってね！</p>
-        <div><Link href="/about">自己紹介ぺージ</Link></div>
-        <div><Link href="/categories/blog">日常ブログ</Link></div>
-        <div><Link href="/categories/technology">テックブログ</Link></div>
-      </div>
-    </main>
-  )
+    <div>
+      {contents.map((article) => {
+        return (
+          <article key={article.id}>
+            <ArticleCard
+              id={article.id}
+              title={article.title}
+              description={article.description}
+              createdAt={getLocalDateString(article.createdAt)}
+            />
+          </article>
+        );
+      })}
+    </div>
+  );
 }
