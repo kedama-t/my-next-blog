@@ -6,7 +6,7 @@ import { getLocalDateString } from "@/lib/utils";
 const articles = await getArticles();
 
 export const generateStaticParams = async () => {
-  return articles;
+  return articles.map(articleId =>({articleId}));
 };
 
 export default async function listArticles({

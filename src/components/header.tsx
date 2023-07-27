@@ -9,10 +9,10 @@ export default function Header() {
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link href="/categories/blog">日常ブログ</Link>
+            <Link href="/categories/blog"prefetch={false} >日常ブログ</Link>
           </li>
           <li>
-            <Link href="/categories/technology">テックブログ</Link>
+            <Link href="/categories/technology"prefetch={false} >テックブログ</Link>
           </li>
         </ul>
       </div>

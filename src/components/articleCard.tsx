@@ -17,7 +17,7 @@ export default function ArticleCard(props: ArticleCardProps) {
         <p>{description}</p>
         <p className='text-xs'>{createdAt}</p>
         <div className="card-actions justify-end">
-          <Link href={`/articles/${id}`} className="btn btn-primary">記事を読む</Link>
+          <Link href={`/articles/${id}`} prefetch={false} className="btn btn-primary">記事を読む</Link>
         </div>
       </div>
     </div>

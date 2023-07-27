@@ -7,7 +7,7 @@ import { getLocalDateString } from "@/lib/utils";
 const categories = await getCategories();
 
 export const generateStaticParams = async () => {
-  return [...categories.keys()];
+  return [...categories.keys()].map(category =>({category}));
 };
 
 export default async function showArticle({
